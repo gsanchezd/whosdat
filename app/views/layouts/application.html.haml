@@ -1,21 +1,16 @@
 !!!
 %html{:lang => "en"}
   %head
-    %meta{:charset => "utf-8"}/
+    %meta{:charset => "utf-8"}
     %title Who's dat ASS!!
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
 
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    / Loading Bootstrap
-    %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
-    / HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
-    /[if lt IE 9]
-      <script src="js/html5shiv.js"></script>
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %link{:href => "images/favicon.ico", :rel => "shortcut icon"}
+    <script src="js/html5shiv.js"></script>
     :css
-      .padding20 {
-      padding:20px; 
-    }
-    %body
-      =yield
+      .padding20 { padding:20px; }
+  %body
+    =yield
       

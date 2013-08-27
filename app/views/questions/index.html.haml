@@ -1,19 +1,16 @@
 .container
   %h1 Who's dat ASS!!
-  %img#foto.img-polaroid{:src => "#{@question.photo_mini}", :width => "600"}
+  %img#photo-mini.span6.img-polaroid{:src => "#{@question.photo_mini}"}
+  %img#photo.span6.img-polaroid{:src => "#{@question.photo}", :style => 'visibility:hidden;'}
 
 #result.container
   .row-fluid
     -@answers.each do |a|
       .span6.text-center.padding20
-        %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "#{a.answer}"}/
-    -#   .span6.text-center.padding20
-    -#     %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 2"}/
-    -# .row-fluid
-    -#   .span6.text-center.padding20
-    -#     %input.btn.btn-info.span4{:onclick => "check(2, 2)", :type => "button", :value => "Nombre 3"}/
-    -#   .span6.text-center.padding20
-    -#     %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 4"}/
+        -if a.answer == @question.answer.answer
+          %input.btn.btn-info.span4{:onclick => "check(2, 2)", :type => "button", :value => "#{a.answer}"}
+        -else
+          %input.btn.btn-alert.span4{:onclick => "check(1, 2)", :type => "button" , :value => "#{a.answer}"}
 
 #ok{:style => "display:none"}
   .row-fluid
@@ -33,15 +30,22 @@
       %p Todavía te falta por aprender joven padawan
       %p
         %a.btn.btn-large.btn-info{:href => "?"} Volver a empezar
+
 :javascript
   function check(right, option){
+    $('#photo').css('visibility', 'visible')
+    $('#photo-mini').css('visibility', 'hidden')
+
     if(right == option){
-      $('#foto').attr('src', '@question.photo');
       $('#result').html($('#ok').html()).hide().fadeIn('slow');
       $('#nombre_culo').html('nombre');
       $('#foto').fadeOut('slow').attr('src','media/large.jpg').fadeIn('slow');  
     } else {
-      malas = Array('Puta el wn pencaaa!!!!!', 'Wn cagón!!', 'Psss Gay encubierto!!', 'Partiste a ver porno: <a href="http://xvideos.com">Xvideos.com</a>');
+      malas = Array(
+        'Puta el wn pencaaa!!!!!', 
+        'Wn cagón!!', 
+        'Psss Gay encubierto!!', 
+        'Partiste a ver porno: <a href="http://xvideos.com">Xvideos.com</a>');
       $('#titulo_mal').html(malas[Math.floor((Math.random()*4))]);
       //alert(Math.random(4));
       $('#result').html($('#bad').html()).hide().fadeIn('slow');  
