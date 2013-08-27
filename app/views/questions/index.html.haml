@@ -35,6 +35,7 @@
 :javascript
   function check(right, option){
     if(right == option){
+      $('#foto').attr('src', @question.photo_mini);
       $('#result').html($('#ok').html()).hide().fadeIn('slow');
       $('#nombre_culo').html('nombre');
       $('#foto').fadeOut('slow').attr('src','media/large.jpg').fadeIn('slow');  
