@@ -10,25 +10,24 @@
         -if a.answer == @question.answer.answer
           %input.btn.btn-info.span4{:onclick => "check(2, 2)", :type => "button", :value => "#{a.answer}"}
         -else
-          %input.btn.btn-alert.span4{:onclick => "check(1, 2)", :type => "button" , :value => "#{a.answer}"}
+          %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button" , :value => "#{a.answer}"}
 
 #ok{:style => "display:none"}
   .row-fluid
     .span12.text-center.alert-success.padding20
       %h3 Bieeen!
       %p
-        Le achuntaste al culo de esta maraca
+        Le achuntaste al culo
         %b
           %span#nombre_culo
       %p Se nota que tienes experiencia
       %p
         %a.btn.btn-large.btn-success{:href => "?"} Siguiente
+
 #bad{:style => "display:none"}
   .row-fluid
     .span12.text-center.alert-danger.padding20
       %h3#titulo_mal
-      %p Todavía te falta por aprender joven padawan
-      %p
         %a.btn.btn-large.btn-info{:href => "?"} Volver a empezar
 
 :javascript
@@ -44,7 +43,7 @@
       malas = Array(
         'Puta el wn pencaaa!!!!!', 
         'Wn cagón!!', 
-        'Psss Gay encubierto!!', 
+        'Te falta por aprender joven padawan!!', 
         'Partiste a ver porno: <a href="http://xvideos.com">Xvideos.com</a>');
       $('#titulo_mal').html(malas[Math.floor((Math.random()*4))]);
       //alert(Math.random(4));
