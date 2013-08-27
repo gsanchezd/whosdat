@@ -1,18 +1,19 @@
 .container
   %h1 Who's dat ASS!!
-  %img#foto.img-polaroid{:src => "#{@question.photo}", :width => "600"}
+  %img#foto.img-polaroid{:src => "#{@question.photo_mini}", :width => "600"}
 
 #result.container
   .row-fluid
-    .span6.text-center.padding20
-      %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 1"}/
-    .span6.text-center.padding20
-      %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 2"}/
-  .row-fluid
-    .span6.text-center.padding20
-      %input.btn.btn-info.span4{:onclick => "check(2, 2)", :type => "button", :value => "Nombre 3"}/
-    .span6.text-center.padding20
-      %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 4"}/
+    -@answers.each do |a|
+      .span6.text-center.padding20
+        %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "#{a.answer}"}/
+    -#   .span6.text-center.padding20
+    -#     %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 2"}/
+    -# .row-fluid
+    -#   .span6.text-center.padding20
+    -#     %input.btn.btn-info.span4{:onclick => "check(2, 2)", :type => "button", :value => "Nombre 3"}/
+    -#   .span6.text-center.padding20
+    -#     %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 4"}/
 
 #ok{:style => "display:none"}
   .row-fluid
@@ -35,7 +36,7 @@
 :javascript
   function check(right, option){
     if(right == option){
-      $('#foto').attr('src', '@question.photo_mini');
+      $('#foto').attr('src', '@question.photo');
       $('#result').html($('#ok').html()).hide().fadeIn('slow');
       $('#nombre_culo').html('nombre');
       $('#foto').fadeOut('slow').attr('src','media/large.jpg').fadeIn('slow');  
