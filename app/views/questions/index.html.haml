@@ -1,3 +1,47 @@
-=image_tag (@q.photo)
+.container
+  %h1 Who's dat ASS!!
+  %img#foto.img-polaroid{:src => "#{@question.photo}", :width => "600"}
 
+#result.container
+  .row-fluid
+    .span6.text-center.padding20
+      %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 1"}/
+    .span6.text-center.padding20
+      %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 2"}/
+  .row-fluid
+    .span6.text-center.padding20
+      %input.btn.btn-info.span4{:onclick => "check(2, 2)", :type => "button", :value => "Nombre 3"}/
+    .span6.text-center.padding20
+      %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button", :value => "Nombre 4"}/
 
+#ok{:style => "display:none"}
+  .row-fluid
+    .span12.text-center.alert-success.padding20
+      %h3 Bieeen!
+      %p
+        Le achuntaste al culo de esta maraca
+        %b
+          %span#nombre_culo
+      %p Se nota que tienes experiencia
+      %p
+        %a.btn.btn-large.btn-success{:href => "?"} Siguiente
+#bad{:style => "display:none"}
+  .row-fluid
+    .span12.text-center.alert-danger.padding20
+      %h3#titulo_mal
+      %p Todavía te falta por aprender joven padawan
+      %p
+        %a.btn.btn-large.btn-info{:href => "?"} Volver a empezar
+:javascript
+  function check(right, option){
+    if(right == option){
+      $('#result').html($('#ok').html()).hide().fadeIn('slow');
+      $('#nombre_culo').html('nombre');
+      $('#foto').fadeOut('slow').attr('src','media/large.jpg').fadeIn('slow');  
+    } else {
+      malas = Array('Puta el wn pencaaa!!!!!', 'Wn cagón!!', 'Psss Gay encubierto!!', 'Partiste a ver porno: <a href="http://xvideos.com">Xvideos.com</a>');
+      $('#titulo_mal').html(malas[Math.floor((Math.random()*4))]);
+      //alert(Math.random(4));
+      $('#result').html($('#bad').html()).hide().fadeIn('slow');  
+    }
+  }
