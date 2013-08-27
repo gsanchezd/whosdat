@@ -19,6 +19,8 @@ gem 'carrierwave'
 gem 'carrierwave-processing'
 gem 'fog'
 gem 'rmagick'
+gem 'taps' # Database push and pull
+
 
 # Gems used only for assets and not required
 # in production environments by default.
