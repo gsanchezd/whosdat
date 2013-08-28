@@ -84,6 +84,7 @@ GEM
     formatador (0.2.4)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    google-analytics-rails (0.0.4)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -212,6 +213,7 @@ DEPENDENCIES
   carrierwave-processing
   coffee-rails (~> 3.2.1)
   fog
+  google-analytics-rails
   haml-rails
   jquery-rails (~> 2.3.0)
   jquery-ui-rails
