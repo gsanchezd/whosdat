@@ -55,7 +55,7 @@ module Whosedatass
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.initialize_on_precompile =  true
+    config.assets.initialize_on_precompile =  false
     #config.assets.compile = true
     config.serve_static_assets = true
 
