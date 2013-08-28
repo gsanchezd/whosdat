@@ -21,6 +21,10 @@ gem 'rmagick'
 gem 'taps' # Database push and pull
 gem 'google-analytics-rails'
 
+#Auth
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
