@@ -1,19 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
-gem 'jquery-rails', "~> 2.3.0"
-gem "jquery-ui-rails"
+gem 'jquery-rails', "~> 3.0.4"
+gem "jquery-ui-rails", "~> 4.0.4"
+gem 'activeadmin'
 
 gem 'haml-rails'
 gem 'less-rails'
 gem 'therubyracer'
 
-gem 'activeadmin'
 
 gem 'carrierwave'
 gem 'carrierwave-processing'
