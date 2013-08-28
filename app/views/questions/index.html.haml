@@ -1,52 +1,57 @@
 .container
-  %h1 Who's dat ASS!!
-  %img#photo-mini.span6.img-polaroid{:src => "#{@question.photo_mini}"}
-  %img#photo.span6.img-polaroid{:src => "#{@question.photo}", :style => 'visibility:hidden;'}
+  .row
+    .col-md-4.col-md-offset-4
+      %h1 Who's dat ASS!!
+      %img#photo-mini.img-responsive.thumbnail{:src => "#{@question.photo_mini}"}
+      %img#photo.img-responsive.thumbnail{:src => "#{@question.photo}", :style => 'display:none;'}
 
-#result.container
-  .row-fluid
-    -@answers.each do |a|
-      .span6.text-center.padding20
-        -if a.answer == @question.answer.answer
-          %input.btn.btn-info.span4{:onclick => "check(2, 2)", :type => "button", :value => "#{a.answer}"}
-        -else
-          %input.btn.btn-info.span4{:onclick => "check(1, 2)", :type => "button" , :value => "#{a.answer}"}
+  .row
+    .col-md-4.col-md-offset-4
 
-#ok{:style => "display:none"}
-  .row-fluid
-    .span12.text-center.alert-success.padding20
-      %h3 Bieeen!
-      %p
-        Le achuntaste al culo
-        %b
-          %span#nombre_culo
-      %p Se nota que tienes experiencia
-      %p
-        %a.btn.btn-large.btn-success{:href => "?"} Siguiente
+      #answers
+        .row
+          -@answers.each do |a|
+            %p{:style => 'margin-top:20px'}
+              -if a.answer == @question.answer.answer
+                %input.btn.btn-info{:onclick => "check(2, 2)", :type => "button", :value => "#{a.answer}"}
+              -else
+                %input.btn.btn-info{:onclick => "check(1, 2)", :type => "button" , :value => "#{a.answer}"}
 
-#bad{:style => "display:none"}
-  .row-fluid
-    .span12.text-center.alert-danger.padding20
-      %h3#titulo_mal
-        %a.btn.btn-large.btn-info{:href => "?"} Volver a empezar
+  .row
+    .col-md-4.col-md-offset-4
+
+      #ok{:style => "display:none"}
+        .row-fluid
+          .span12.text-center.alert-success.padding20
+            %h3 Bieeen!
+            %p Le diste al clavo
+            %p
+              %a.btn.btn-large.btn-success{:href => "?"} Siguiente
+
+      #bad{:style => "display:none"}
+        .row-fluid
+          .span12.text-center.alert-danger.padding20
+            %h3 Mal!
+            %p#alert-msg
+            %p
+              %a.btn.btn-large.btn-success{:href => "?"}  Volver a empezar
 
 :javascript
   function check(right, option){
-    $('#photo').css('visibility', 'visible')
-    $('#photo-mini').css('visibility', 'hidden')
+    
+    $('#answers').css('display', 'none')
 
     if(right == option){
-      $('#result').html($('#ok').html()).hide().fadeIn('slow');
-      $('#nombre_culo').html('nombre');
-      $('#foto').fadeOut('slow').attr('src','media/large.jpg').fadeIn('slow');  
+      $('#photo-mini').css('display', 'none')
+      $('#photo').css('display', 'inline')
+      $('#ok').css('display', 'inline')
     } else {
       malas = Array(
-        'Puta el wn pencaaa!!!!!', 
-        'Wn cagón!!', 
+        'Error', 
+        'Nope', 
         'Te falta por aprender joven padawan!!', 
-        'Partiste a ver porno: <a href="http://xvideos.com">Xvideos.com</a>');
-      $('#titulo_mal').html(malas[Math.floor((Math.random()*4))]);
-      //alert(Math.random(4));
-      $('#result').html($('#bad').html()).hide().fadeIn('slow');  
+        'Te falta calle');
+      $('#bad').css('display', 'inline')
+      $('#alert-msg').html(malas[Math.floor((Math.random()*4))]);
     }
   }
