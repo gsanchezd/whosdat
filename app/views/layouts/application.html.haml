@@ -35,5 +35,12 @@
         %ul.nav.navbar-nav
           %li.active
             .fb-like{"data-href" => "http://whosdatass.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "false", :style => 'float:left; margin-top:15px'}
+        %ul.nav.navbar-nav.navbar-right
+          %li.active
+            - if current_user.nil?
+              = link_to "Sign with Facebook", user_omniauth_authorize_path(:facebook)
+            - else
+              = link_to('Logout', destroy_user_session_path, :method => 'delete') 
+
     =yield
 

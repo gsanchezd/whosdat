@@ -233,6 +233,7 @@ DEPENDENCIES
   carrierwave
   carrierwave-processing
   coffee-rails (~> 3.2.1)
+  devise
   fog
   google-analytics-rails
   haml-rails
