@@ -11,4 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
+//= require jquery
+//= require jquery.turbolinks
 //= require_tree .
+//= require turbolinks
+

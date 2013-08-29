@@ -5,4 +5,9 @@ class QuestionsController < ApplicationController
 		answers << @question.answer
 		@answers = answers.shuffle
 	end
+
+	def landing
+		@question = Question.offset(rand(Question.count)).first	
+	end
+
 end

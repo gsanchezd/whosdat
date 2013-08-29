@@ -2,7 +2,7 @@ Whosedatass::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  root :to => 'questions#index'
+  root :to => 'questions#landing'
     
   ActiveAdmin.routes(self)
 
@@ -17,7 +17,11 @@ Whosedatass::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  resources :questions
+  resources :questions do 
+    collection do 
+      get 'landing'
+    end
+  end
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

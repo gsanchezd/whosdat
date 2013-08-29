@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -26,6 +26,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'devise'
 
+#speedups
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -44,6 +48,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'rails-dev-tweaks'
 end
 
 
