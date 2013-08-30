@@ -1,9 +1,8 @@
-
 .container
   .row
     .col-md-4.col-md-offset-4.col-xs-10.col-xs-10-offset2.col-sm-10.col-sm-10-offset2
-      %img#photo-mini.img-responsive.thumbnail{:src => "#{@question.photo_mini}"}
-      %img#photo.img-responsive.thumbnail{:src => "#{@question.photo}", :style => 'display:none;'}
+      %img#photo-mini.img-responsive.thumbnail{:src => "#{@question.photo_mini}", :alt => "foto mini"}
+      %img#photo.img-responsive.thumbnail{:src => "#{@question.photo}", :style => 'display:none;', :alt => "foto"}
 
       #answers
         .row
@@ -27,13 +26,11 @@
           .span12.text-center.alert-danger.padding20
             %h3 Mal!
             %p#alert-msg
-            %p
-              %p= "Obtuviste #{session[:score]} puntos "
-              
-              %a.btn.btn-large.btn-success{:href => root_path} Volver a empezar
-  
-    .col-md-4
-      <div class="fb-comments" data-href="http://whosdatass.com" data-width="400px"></div>
+            %p= "Obtuviste #{session[:score]} puntos "  
+            %a.btn.btn-large.btn-success{:href => root_path} Volver a empezar
+    -unless mobile_device?  
+      .col-md-4
+        <div class="fb-comments" data-href="http://whosdatass.com" data-width="400px"></div>
 
 :javascript
   $(function() {
