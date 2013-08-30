@@ -9,10 +9,10 @@
         .row
           -@answers.each do |a|
             %p{:style => 'margin-top:20px'}
-              -if a.answer == @question.answer.answer
-                %input.btn.btn-info{:onclick => "check(2, 2)", :type => "button", :value => "#{a.answer}"}
-              -else
-                %input.btn.btn-info{:onclick => "check(1, 2)", :type => "button" , :value => "#{a.answer}"}
+              - if a.answer == @question.answer.answer
+                %a.correct-answer.btn.btn-info{:href => '#'}= a.answer
+              - else
+                %a.wrong-answer.btn.btn-info{:href => '#'}= a.answer
 
       #ok{:style => "display:none"}
         .row-fluid
@@ -29,27 +29,33 @@
             %p#alert-msg
             %p
               %p= "Obtuviste #{session[:score]} puntos "
+              
               %a.btn.btn-large.btn-success{:href => root_path} Volver a empezar
   
     .col-md-4
       <div class="fb-comments" data-href="http://whosdatass.com" data-width="400px"></div>
 
 :javascript
-  function check(right, option){
-    
-    $('#answers').css('display', 'none')
-
-    if(right == option){
-      $('#photo-mini').css('display', 'none')
-      $('#photo').css('display', 'inline')
-      $('#ok').css('display', 'inline')
-    } else {
+  $(function() {
+    $('.correct-answer').click(function () {
+      $('#answers').css('display', 'none');
+      $('#photo-mini').css('display', 'none');
+      $('#photo').css('display', 'inline');
+      $('#ok').css('display', 'inline');
+      return false;
+    });
+  
+    $('.wrong-answer').click(function () {
+      $('#answers').css('display', 'none');
+      $('#photo-mini').css('display', 'none');
+      $('#photo').css('display', 'inline');
       malas = Array(
         'Error', 
         'Nope', 
         'Te falta por aprender joven padawan!!', 
         'Te falta calle');
-      $('#bad').css('display', 'inline')
+      $('#bad').css('display', 'inline');
       $('#alert-msg').html(malas[Math.floor((Math.random()*4))]);
-    }
-  }
+      return false; 
+    });
+  });
