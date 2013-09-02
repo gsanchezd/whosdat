@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
 		end
 
 		session[:score] = 0
+		@last_games = Game.where("user_id IS NOT NULL").last(5)
 
 	end
 

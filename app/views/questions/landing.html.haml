@@ -1,19 +1,28 @@
-#carousel-example-generic.carousel.slide{:style => 'margin-top:20px'}
+.container
+  .row
+    .col-md-4.col-md-offset-2.col-xs-10.col-xs-10-offset2.col-sm-10.col-sm-10-offset2
+      #carousel-example-generic.carousel.slide{:style => 'margin-top:20px'}
 
-  / Indicators
-  -# %ol.carousel-indicators
-  -#   %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-    -# %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-    -# %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
-  / Wrapper for slides
-  .carousel-inner
-    .item.active
-      %img{:alt => "Culo", :src => @question.photo_mini, :width => '400px', :style => 'margin: auto auto'}
-      .carousel-caption
-        %H1 Who's Dat ASS 
-        %p Adivina de quien es cada culo
-        .btn.btn-default.btn-lg
-          =link_to('Jugar', questions_path())
+        / Indicators
+        -# %ol.carousel-indicators
+        -#   %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          -# %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          -# %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+        / Wrapper for slides
+        .carousel-inner
+          .item.active
+            %img{:alt => "Culo", :src => @question.photo_mini, :width => '400px', :style => 'margin: auto auto'}
+            .carousel-caption
+              %H1 Who's Dat ASS 
+              %p El juego donde tienes que adivinar de quien es el culo
+              =link_to('Jugar', questions_path(), :class => 'btn btn-primary btn-primary-lg')
+    
+    .col-md-4.col-xs-10.col-xs-10-offset2.col-sm-10.col-sm-10-offset2
+      .jumbotron{:style => 'margin-top:20px'}
+        %h5 últimos puntajes
+        - @last_games.each do |lg|
+          = lg.user.name
+          = lg.score
 
   -# %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
   -#   %span.icon-prev
