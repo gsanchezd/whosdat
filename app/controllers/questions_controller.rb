@@ -15,7 +15,13 @@ class QuestionsController < ApplicationController
 
 	def landing
 		@question = Question.offset(rand(Question.count)).first	
+
+		if session[:score] != 0
+			Game.create(score:session[:score], user:current_user)
+		end
+
 		session[:score] = 0
+
 	end
 
 end
