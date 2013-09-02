@@ -18,11 +18,11 @@ class QuestionsController < ApplicationController
 
 		if session[:score] != 0
 			Game.create(score:session[:score], user:current_user)
+			track_event("end game score", optional_property: session[:score])
 		end
 
 		session[:score] = 0
 		@last_games = Game.where("user_id IS NOT NULL").last(5)
-
 	end
 
 end
