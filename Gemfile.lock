@@ -68,6 +68,8 @@ GEM
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    event_tracker (0.2.1)
+      rails (>= 3.0)
     excon (0.25.3)
     execjs (2.0.1)
     faraday (0.8.8)
@@ -243,6 +245,7 @@ DEPENDENCIES
   carrierwave-processing
   coffee-rails (~> 3.2.1)
   devise
+  event_tracker
   fog
   google-analytics-rails
   haml-rails

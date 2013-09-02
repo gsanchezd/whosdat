@@ -61,5 +61,9 @@ module Whosedatass
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.event_tracker.mixpanel_key = "YOUR_KEY"
+    config.event_tracker.kissmetrics_key = "7695ccbce5fe9db7faf2eb507caf7643e2fbde79"
+
   end
 end
