@@ -19,10 +19,10 @@
     
     .col-md-4.col-xs-10.col-xs-10-offset2.col-sm-10.col-sm-10-offset2
       .jumbotron{:style => 'margin-top:20px'}
-        %h5 últimos puntajes
-        - @last_games.each do |lg|
-          = lg.user.name
-          = lg.score
+        %h2 Últimos puntajes
+        %ul
+          - @last_games.each do |lg|
+            %li= "#{lg.user.name}: #{lg.score}"
 
   -# %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
   -#   %span.icon-prev
