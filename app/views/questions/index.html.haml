@@ -39,6 +39,7 @@
       $('#photo-mini').css('display', 'none');
       $('#photo').css('display', 'inline');
       $('#ok').css('display', 'inline');
+      _kmq.push(['record', 'Correct Answer']);
       return false;
     });
   
@@ -53,6 +54,8 @@
         'Te falta calle');
       $('#bad').css('display', 'inline');
       $('#alert-msg').html(malas[Math.floor((Math.random()*4))]);
+      _kmq.push(['record', 'Bad Answer']);
+
       return false; 
     });
   });

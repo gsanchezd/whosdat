@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
 
 		if session[:score] != 0
 			Game.create(score:session[:score], user:current_user)
-			track_event("end game score", optional_property: session[:score])
+			track_event("End Game", score: session[:score])
 		end
 
 		session[:score] = 0
